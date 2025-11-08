@@ -1,0 +1,462 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 🌊 Smooth floating motion */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(5deg);
+  }
+  50% {
+    transform: translateY(12px) rotate(-5deg);
+  }
+}
+.animate-float {
+  animation: float 2.5s ease-in-out infinite;
+}
+
+/* ✨ Gentle pulse */
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* 🍫 Premium Milk Chocolate Shine (Thick + Slow) */
+.animate-choco-wave {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    270deg,
+    #8b5a2b 0%,
+    /* rich caramel brown */ #a66a3f 25%,
+    /* milk chocolate */ #b97c4a 50%,
+    /* creamy mocha */ #d2a679 75%,
+    /* light latte */ #f2d6b3 100% /* white chocolate highlight */
+  );
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: choco-wave 10s ease-in-out infinite;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 6px 12px rgba(0, 0, 0, 0.7));
+  text-shadow: 0 2px 3px rgba(255, 255, 255, 0.15),
+    0 -1px 2px rgba(0, 0, 0, 0.5), 0 6px 10px rgba(0, 0, 0, 0.7);
+  transform: perspective(600px) rotateX(4deg);
+  transition: all 0.6s ease;
+}
+
+/* 🍫 Chocolate gradient wave motion */
+@keyframes choco-wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ✨ Slow chocolate reflection */
+.animate-choco-wave::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -180%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: choco-shine 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes choco-shine {
+  0% {
+    left: -180%;
+  }
+  60%,
+  100% {
+    left: 180%;
+  }
+}
+
+/* 🍫 Drip Effect */
+.animate-choco-wave::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(60, 30, 10, 0.9) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: choco-drip 2.5s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes choco-drip {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(4px) scaleY(1.3);
+    opacity: 1;
+  }
+}
+
+/* 🍬 Slide + Bounce Animations (for Colorful, Chewy, Irresistible) */
+@keyframes slideInLeftBounce {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px) scale(0.9);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(5px) scale(1.05);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInRightBounce {
+  0% {
+    opacity: 0;
+    transform: translateX(80px) scale(0.9);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(-5px) scale(1.05);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInBottomBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(80px) scale(0.9);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ✨ Animation Classes */
+.animate-slide-in-left-bounce {
+  animation: slideInLeftBounce 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.animate-slide-in-right-bounce {
+  animation: slideInRightBounce 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.animate-slide-in-bottom-bounce {
+  animation: slideInBottomBounce 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* 🎵 Stagger Delay */
+.animation-delay-0 {
+  animation-delay: 0s !important;
+}
+.animation-delay-300 {
+  animation-delay: 0.3s !important;
+}
+.animation-delay-600 {
+  animation-delay: 0.6s !important;
+}
+/* 🍭 Multi-Color Candy Pearl Shine (Deluxe Edition) */
+.animate-candy-pearl {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    270deg,
+    #ff5fa2 0%,
+    #ff9a62 15%,
+    #ffd166 30%,
+    #7afcff 45%,
+    #8d5eff 60%,
+    #ff61ef 75%,
+    #ff5fa2 100%
+  );
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: candy-pearl-wave 10s ease-in-out infinite;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3))
+    drop-shadow(0 6px 12px rgba(255, 255, 255, 0.25));
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.15),
+    0 -1px 2px rgba(0, 0, 0, 0.4), 0 6px 10px rgba(0, 0, 0, 0.4);
+  transform: perspective(600px) rotateX(4deg);
+  transition: all 0.6s ease;
+}
+
+/* 🌈 Iridescent flowing gradient */
+@keyframes candy-pearl-wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes candy-pearl-shine {
+  0% {
+    left: -150%;
+  }
+  60%,
+  100% {
+    left: 150%;
+  }
+}
+
+/* 💎 Glossy Candy Shell Overlay */
+.animate-candy-pearl::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 30% 20%,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 25%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 70%
+    );
+  mix-blend-mode: screen;
+  animation: glossy-reflect 6s ease-in-out infinite,
+    glossy-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.85;
+  border-radius: 5px;
+}
+
+/* ✨ Light reflection slowly sliding */
+@keyframes glossy-reflect {
+  0% {
+    transform: translateX(-10%) translateY(0);
+  }
+  50% {
+    transform: translateX(10%) translateY(-2%);
+  }
+  100% {
+    transform: translateX(-10%) translateY(0);
+  }
+}
+
+/* 🌟 Gentle shimmer breathing pulse */
+@keyframes glossy-pulse {
+  0%,
+  100% {
+    opacity: 0.75;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.25);
+  }
+}
+@keyframes textShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-textShimmer {
+  background-size: 200% auto;
+  animation: textShimmer 5s ease infinite;
+}
+
+@keyframes buttonShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-buttonShine {
+  animation: buttonShine 2.5s linear infinite;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  background-size: 200% auto;
+}
+/* 🌈 Moving gradient animation for heading */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.animate-gradient-move {
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite;
+}
+/* ✨ Animated Rainbow Background */
+.rainbow-bg {
+  background: linear-gradient(135deg, #2424f5, #4b0082, #9400d3);
+  background-size: 800% 800%;
+  animation: rainbowShift 15s ease-in-out infinite;
+}
+
+@keyframes rainbowShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* 🌟 Moving Gradient Text Effect */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-move {
+  background-size: 250% 250%;
+  animation: gradientMove 6s ease infinite;
+}
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes bounce-slower {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s infinite ease-in-out;
+}
+
+.animate-bounce-slower {
+  animation: bounce-slower 4s infinite ease-in-out;
+}
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
